@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection - Web Series & Stories</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 15px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #ffcc00;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+      letter-spacing: 1px;
+    }
+
+    .category {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 30px;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 40px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .category:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 35px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      color: #00eaff;
+      border-left: 5px solid #ffcc00;
+      padding-left: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #ffcc00, #ff8800);
+      color: #111;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.9rem;
+      }
+      .category {
+        padding: 20px;
+      }
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📺 Collection</h1>
+
+  <!-- Category 1 -->
+  <div class="category" id="category1">
+    <h2>🎬 Best for Series Download</h2>
+    <a href="#" class="button" id="btn1">Visit Now</a>
+  </div>
+
+  <!-- Category 2 -->
+  <div class="category" id="category2">
+    <h2>📖 Read Story</h2>
+    <a href="#" class="button" id="btn2">Visit Now</a>
+  </div>
+
+  <!-- Category 3 -->
+  <div class="category" id="category3">
+    <h2>🌐 Random Web Visit</h2>
+    <a href="#" class="button" id="btn3">Visit Now</a>
+  </div>
+
+  <script>
+    // Category 1 Links
+   // all links are collected
+    const cat1Links = [
+      "https://manvichughwebseries.blogspot.com",
+      "https://jayesummers.blogspot.com",
+      "https://ukvau.blogspot.com",
+      "https://storywatchflix.blogspot.com",
+      "https://aylxstarstory.blogspot.com",
+      "https://worldactressflix.blogspot.com",
+      "https://arparoy.blogspot.com",
+      "https://arparoycollection.blogspot.com",
+      "https://nikitavaidreels.blogspot.com",
+      "https://sites.google.com/view/arpa-roy/home"
+    ];
+
+    // Category 2 Links
+    const cat2Links = [
+      "https://storylinestorebook.blogspot.com",
+      "https://elizaibarrastory.blogspot.com",
+      "https://storyflixtam.blogspot.com",
+      "https://storytimearpa.blogspot.com",
+      "https://pratikshastory.blogspot.com",
+      "https://rekhamonasarkar.blogspot.com"
+    ];
+
+    // Category 3 Links
+    const cat3Links = [
+      "https://tixwebs.blogspot.com",
+      "https://instareelsgirl.blogspot.com"
+    ];
+
+    // Load saved progress (so it remembers which link was last)
+    let index1 = parseInt(localStorage.getItem("index1") || "0");
+    let index2 = parseInt(localStorage.getItem("index2") || "0");
+    let index3 = parseInt(localStorage.getItem("index3") || "0");
+
+    // Generic function
+    function handleClick(links, indexKey, currentIndex) {
+      window.open(links[currentIndex], "_blank");
+      currentIndex = (currentIndex + 1) % links.length;
+      localStorage.setItem(indexKey, currentIndex);
+      return currentIndex;
+    }
+
+    // Button listeners
+    document.getElementById("btn1").addEventListener("click", () => {
+      index1 = handleClick(cat1Links, "index1", index1);
+    });
+
+    document.getElementById("btn2").addEventListener("click", () => {
+      index2 = handleClick(cat2Links, "index2", index2);
+    });
+
+    document.getElementById("btn3").addEventListener("click", () => {
+      index3 = handleClick(cat3Links, "index3", index3);
+    });
+  </script>
+
+</body>
+</html>
